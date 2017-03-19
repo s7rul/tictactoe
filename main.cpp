@@ -33,13 +33,26 @@ int charconvert(char input){//converts char to appropriate int
     return 6;
 }
 
+bool checkIfempty(int board[3][3], int x, int y){
+    //check if a plce on the board is empty
+    //return 0 => not empty
+    //return 1 => empty
+    if (board[x][y] == 0){
+        return 1;
+    }
+    else {
+        std::cout << "not empty\n";
+        return 0;
+    }
+}
+
 int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
     char input[2];
     int x;
     int y;
     std::cout << "your choice: ";
     std::cin >> input;
-    std::cout << input[0] << "\n" << input[1] << "\n";
+    //std::cout << input[0] << "\n" << input[1] << "\n";
     
     x = charconvert(input[0]);
     y = charconvert(input[1]);
@@ -47,13 +60,15 @@ int inputfunk(int board[3][3], bool turn){//handles input and sets board acordin
     if (x == 6){return 1;}
     if (y == 6){return 1;}
 
-    std::cout << x << "\n" << y << "\n";
+    //std::cout << x << "\n" << y << "\n";
 
-    if (turn == 0){
-       board[x][y] = 1;
-    }
-    if (turn == 1){
-       board[x][y] = 2;
+    if (checkIfempty(board, x, y) == 1){
+        if (turn == 0){
+            board[x][y] = 1;
+        }
+        if (turn == 1){
+            board[x][y] = 2;
+        }
     }
     return 0;
 }
