@@ -106,7 +106,7 @@ void gameloops(){
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
             if (turn == 0){turn = 1;}
-            if (turn == 1){turn = 0;}
+            else if (turn == 1){turn = 0;}
             std::cout << turn;
         }
     }
