@@ -60,6 +60,7 @@ bool checkWin(int board[3][3]){
             }
         }
     }
+    return 0;
 }
 
 int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
