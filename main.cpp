@@ -104,9 +104,9 @@ void gameloops(){
         resetBoard(board);
         for (int win = 0; win == 0;){
             printboard(board);
+            inputfunk(board, turn);//returns 1 it invalid option
             if (turn == 0){turn = 1;}
             if (turn == 1){turn = 0;}
-            inputfunk(board, turn);//returns 1 it invalid option
             std::cout << turn;
         }
     }
