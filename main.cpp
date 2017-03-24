@@ -22,7 +22,6 @@ void printboard(int board[3][3]){
     std::cout << "***************\n";
 }
 
-
 int charconvert(char input){//converts char to appropriate int
     if (input == '1'){return 0;}
     if (input == '2'){return 1;}
@@ -46,18 +45,19 @@ bool checkIfempty(int board[3][3], int x, int y){
     }
 }
 
-bool checkWin(int board[3][3]){
+bool checkWin(int board[3][3], bool turn){
     //check if win condition is met
-    for (int turn = 1; turn < 3; turn++){
-        for (int x = 0; x < 3; x++){
-            if (board[x][0] && board[x][1] && board[x][2] == turn){
-                return 1;
-            }
+    //reurn 0 if no win && 1 if win
+    int intturn = turn + 1;
+    std::cout << "turn: " << intturn << "\n";
+    for (int x = 0; x < 3; x++){
+        if (board[x][0] && board[x][1] && board[x][2] == intturn){
+            return 1;
         }
-        for (int y = 0; y < 3; y++){
-            if (board[0][y] && board[1][y] && board[2][y] == turn){
-                return 1;
-            }
+    }
+    for (int y = 0; y < 3; y++){
+        if (board[0][y] && board[1][y] && board[2][y] == intturn){
+            return 1;
         }
     }
     return 0;
@@ -114,25 +114,25 @@ void resetBoard(int board[3][3]){
 void gameloops(){
     int board[3][3];
     int shoice = menu();
-    if (shoice == 1){
-        //insert 1p loop here
+    if (shoice == 2){
+        //insert 2p loop here
         bool turn = 0;//x = 0 o=1
         std::cout << "one player\n";
         resetBoard(board);
         for (bool win = 0; win == 0;){
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
-            if (checkWin(board) == 1){
+            /*if (checkWin(board, turn) == 1){
                 std::cout << "somebody won\n";
                 win = 1;
-            }
+            }*/
             if (turn == 0){turn = 1;}
             else if (turn == 1){turn = 0;}
-            std::cout << turn;
+            std::cout << turn << "\n";
         }
     }
-    if (shoice == 2){
-        //insert 2p loop here
+    if (shoice == 1){
+        //insert 1p loop here
         resetBoard(board);
         std::cout << "two player\n";
     }
