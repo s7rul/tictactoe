@@ -46,6 +46,22 @@ bool checkIfempty(int board[3][3], int x, int y){
     }
 }
 
+bool checkWin(int board[3][3]){
+    //check if win condition is met
+    for (int turn = 1; turn < 3; turn++){
+        for (int x = 0; x < 3; x++){
+            if (board[x][0] && board[x][1] && board[x][2] == turn){
+                return 1;
+            }
+        }
+        for (int y = 0; y < 3; y++){
+            if (board[0][y] && board[1][y] && board[2][y] == turn){
+                return 1;
+            }
+        }
+    }
+}
+
 int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
     char input[2];
     int x;
@@ -102,9 +118,13 @@ void gameloops(){
         bool turn = 0;//x = 0 o=1
         std::cout << "one player\n";
         resetBoard(board);
-        for (int win = 0; win == 0;){
+        for (bool win = 0; win == 0;){
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
+            if (checkWin(board) == 1){
+                std::cout << "somebody won\n";
+                win = 1;
+            }
             if (turn == 0){turn = 1;}
             else if (turn == 1){turn = 0;}
             std::cout << turn;
