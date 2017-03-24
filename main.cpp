@@ -46,7 +46,7 @@ bool checkIfempty(int board[3][3], int x, int y){
     }
 }
 
-int inputfunk(int board[3][3], int turn){//handles input and sets board acordingly
+int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
     char input[2];
     int x;
     int y;
@@ -99,7 +99,7 @@ void gameloops(){
     int shoice = menu();
     if (shoice == 1){
         //insert 1p loop here
-        int turn = 0;//x = 0 o=1
+        bool turn = 0;//x = 0 o=1
         std::cout << "one player\n";
         resetBoard(board);
         for (int win = 0; win == 0;){
