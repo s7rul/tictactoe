@@ -63,7 +63,7 @@ bool checkWin(int board[3][3], bool turn){
     return 0;
 }
 
-int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
+int inputfunk(int board[3][3], int turn){//handles input and sets board acordingly
     char input[2];
     int x;
     int y;
@@ -91,16 +91,16 @@ int inputfunk(int board[3][3], bool turn){//handles input and sets board acordin
 }
 
 int menu(){
-    int shoice;
+    int choice;
     //menu text
     std::cout << "***********************\n";
     std::cout << "1 > start 1 player game\n";
     std::cout << "2 > start 2 player game\n";
     std::cout << "3 > quit\n";
     std::cout << "***********************\n";
-    std::cout << "Your shoice: ";
-    std::cin >> shoice;
-    return shoice;
+    std::cout << "Your choice: ";
+    std::cin >> choice;
+    return choice;
 }
 
 void resetBoard(int board[3][3]){
@@ -116,7 +116,7 @@ void gameloops(){
     int shoice = menu();
     if (shoice == 2){
         //insert 2p loop here
-        bool turn = 0;//x = 0 o=1
+        int turn = 0;//x = 0 o=1
         std::cout << "one player\n";
         resetBoard(board);
         for (bool win = 0; win == 0;){
