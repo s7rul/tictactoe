@@ -1,7 +1,9 @@
 //tictactoe writen in c++ and working on all platforms
 #include <iostream>
 
+//visual funktions declared in visual.cpp
 void printboard(int board[3][3]);//printing out the board
+int menu();//prints menu and returns choice
 
 int charconvert(char input){//converts char to appropriate int
     if (input == '1'){return 0;}
@@ -71,18 +73,7 @@ int inputfunk(int board[3][3], bool turn){//handles input and sets board acordin
     return 0;
 }
 
-int menu(){
-    int choice;
-    //menu text
-    std::cout << "***********************\n";
-    std::cout << "1 > start 1 player game\n";
-    std::cout << "2 > start 2 player game\n";
-    std::cout << "3 > quit\n";
-    std::cout << "***********************\n";
-    std::cout << "Your choice: ";
-    std::cin >> choice;
-    return choice;
-}
+int menu();
 
 void resetBoard(int board[3][3]){
     for(int n = 0; n < 3; n++){
