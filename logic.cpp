@@ -54,7 +54,6 @@ bool checkWin(int board[3][3], bool turn){
     //check if win condition is met
     //reurn 0 if no win && 1 if win
     int intturn = turn + 1;
-    std::cout << "turn: " << intturn << "\n";
     for (int x = 0; x < 3; x++){
         if (board[x][0] == intturn && board[x][1] == intturn && board[x][2] == intturn){
             return 1;
