@@ -11,7 +11,10 @@ void printboard(int board[3][3]){
             if (board[n][a] == 2){bordchar[n][a] = 'O';}
         }
     }
-
+    std::cout << board[0][0] << board[1][0] << board[2][0] << "\n";
+    std::cout << board[0][1] << board[1][1] << board[2][1] << "\n";
+    std::cout << board[0][2] << board[1][2] << board[2][2] << "\n";
+    std::cout << "\n";
     std::cout << "  * 1 * 2 * 3 *\n";
     std::cout << "***************\n";
     std::cout << "A * " << bordchar[0][0] << " * " << bordchar[1][0] << " * " << bordchar[2][0] << " *\n";
