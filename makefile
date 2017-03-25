@@ -1,2 +1,2 @@
-tictactoe: main.cpp
-		g++ -o tictactoe main.cpp -I.
+tictactoe: main.cpp visuals.cpp
+		g++ -o tictactoe main.cpp visuals.cpp -I.
