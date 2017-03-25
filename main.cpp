@@ -54,12 +54,12 @@ bool checkWin(int board[3][3], bool turn){
     int intturn = turn + 1;
     std::cout << "turn: " << intturn << "\n";
     for (int x = 0; x < 3; x++){
-        if (board[x][0] && board[x][1] && board[x][2] == intturn){
+        if (board[x][0] == intturn && board[x][1] == intturn && board[x][2] == intturn){
             return 1;
         }
     }
     for (int y = 0; y < 3; y++){
-        if (board[0][y] && board[1][y] && board[2][y] == intturn){
+        if (board[0][y] == intturn && board[1][y] == intturn && board[2][y] == intturn){
             return 1;
         }
     }
@@ -125,10 +125,10 @@ void gameloops(){
         for (bool win = 0; win == 0;){
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
-            /*if (checkWin(board, turn) == 1){
+            if (checkWin(board, turn) == 1){
                 std::cout << "somebody won\n";
                 win = 1;
-            }*/
+            }
             if (turn == 0){turn = 1;}
             else if (turn == 1){turn = 0;}
             std::cout << turn << "\n";
