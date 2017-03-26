@@ -1,9 +1,10 @@
-//tictactoe writen in c++ and working on all platforms
+//tictactoe writen in c++ working on linux
 #include <iostream>
 
 //visual funktions declared in visual.cpp
 void printboard(int board[3][3]);//printing out the board
 int menu();//prints menu and returns choice
+void winM(bool turn);//print win funktion
 
 //logic funktions declared in logic.cpp
 int inputfunk(int board[3][3], bool turn);//handels input and changing board array
@@ -29,12 +30,12 @@ void gameloops(){
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
             if (checkWin(board, turn) == 1){
-                std::cout << "somebody won\n";
+                printboard(board);
+                winM(turn);
                 win = 1;
             }
             if (turn == 0){turn = 1;}
             else if (turn == 1){turn = 0;}
-            std::cout << turn << "\n";
         }
     }
     if (shoice == 1){

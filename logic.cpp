@@ -64,5 +64,11 @@ bool checkWin(int board[3][3], bool turn){
             return 1;
         }
     }
+    if (board[0][0] == intturn && board[1][1] == intturn && board[2][2] == intturn){
+        return 1;
+    }
+    if (board[2][0] == intturn && board[1][1] == intturn && board[0][2] == intturn){
+        return 1;
+    }
     return 0;
 }

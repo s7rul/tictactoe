@@ -32,3 +32,20 @@ int menu(){//prints menu and returns choice
     std::cin >> choice;
     return choice;
 }
+
+void winM(bool turn){
+    char charturn = ' ';
+
+    if (turn == 0){
+        charturn = 'X';
+    }
+    if (turn == 1){
+        charturn = 'O';
+    }
+
+    std::cout << "#########################\n";
+    std::cout << "#                       #\n";
+    std::cout << "#      player " << charturn << " won     #\n";
+    std::cout << "#                       #\n";
+    std::cout << "#########################\n";
+}
