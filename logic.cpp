@@ -65,7 +65,30 @@ int inputfunk(int board[3][3], bool turn){//handles input and sets board acordin
         }
     }
     else if (treeout(board, turn) == 1){
-        std::cout << "bad luck\n";
+        char fromInput[2];
+        char toInput[2];
+        int xfrom;
+        int yfrom;
+        int xto;
+        int yto;
+        int intturn = turn + 1;
+
+        std::cout << "move: ";
+        std::cin >> fromInput;
+        std::cout << "to: ";
+        std::cin >> toInput;
+
+        xfrom = charconvert(fromInput[0]);
+        yfrom = charconvert(fromInput[1]);
+        xto = charconvert(toInput[0]);
+        yto = charconvert(toInput[1]);
+
+        if (board[xfrom][yfrom] == intturn){
+            board[xfrom][yfrom] = 0;
+        }
+        if (board[xto][yto] == 0){
+            board[xto][yto] = intturn;
+        }
     }
 
     return 0;
