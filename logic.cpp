@@ -23,30 +23,51 @@ bool checkIfempty(int board[3][3], int x, int y){
     }
 }
 
-int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
-    char input[2];
-    int x;
-    int y;
-    std::cout << "your choice: ";
-    std::cin >> input;
-    //std::cout << input[0] << "\n" << input[1] << "\n";
-    
-    x = charconvert(input[0]);
-    y = charconvert(input[1]);
+bool treeout(int board[3][3], bool turn){
+    int count = 0;
+    int intturn = turn + 1;
 
-    if (x == 6){return 1;}
-    if (y == 6){return 1;}
-
-    //std::cout << x << "\n" << y << "\n";
-
-    if (checkIfempty(board, x, y) == 1){
-        if (turn == 0){
-            board[x][y] = 1;
-        }
-        if (turn == 1){
-            board[x][y] = 2;
+    for (int x = 0; x < 3; x++){
+        for (int y = 0; y < 3; y++){
+            if (board[x][y] == intturn){
+                count++;
+            }
         }
     }
+
+    if (count >= 3){
+        return 1;
+    }
+    else return 0;
+}
+
+int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
+    if (treeout(board, turn) == 0){
+        char input[2];
+        int x;
+        int y;
+        std::cout << "your choice: ";
+        std::cin >> input;
+
+        x = charconvert(input[0]);
+        y = charconvert(input[1]);
+
+        if (x == 6){return 1;}
+        if (y == 6){return 1;}
+
+        if (checkIfempty(board, x, y) == 1){
+            if (turn == 0){
+                board[x][y] = 1;
+            }
+            if (turn == 1){
+                board[x][y] = 2;
+            }
+        }
+    }
+    else if (treeout(board, turn) == 1){
+        std::cout << "bad luck\n";
+    }
+
     return 0;
 }
 
