@@ -21,7 +21,7 @@ void resetBoard(int board[3][3]){
 void gameloops(){
     int board[3][3];
     int shoice = menu();
-    if (shoice == 2){
+    if (shoice == 1){
         //insert 2p loop here
         bool turn = 0;//x = 0 o=1
         std::cout << "one player\n";
@@ -38,12 +38,7 @@ void gameloops(){
             else if (turn == 1){turn = 0;}
         }
     }
-    if (shoice == 1){
-        //insert 1p loop here
-        resetBoard(board);
-        std::cout << "two player\n";
-    }
-    if (shoice == 3){
+    if (shoice == 2){
         std::cout << "quiting\n";
         return;
     }

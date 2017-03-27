@@ -24,9 +24,8 @@ int menu(){//prints menu and returns choice
     int choice;
     //menu text
     std::cout << "***********************\n";
-    std::cout << "1 > start 1 player game\n";
-    std::cout << "2 > start 2 player game\n";
-    std::cout << "3 > quit\n";
+    std::cout << "1 > start 2 player game\n";
+    std::cout << "2 > quit\n";
     std::cout << "***********************\n";
     std::cout << "Your choice: ";
     std::cin >> choice;
