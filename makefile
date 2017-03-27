@@ -1,2 +1,2 @@
-tictactoe: main.cpp visuals.cpp logic.cpp
-		g++ -o tictactoe main.cpp visuals.cpp logic.cpp -I.
+tictactoe: main.cpp visuals.cpp logic.cpp ai.cpp
+		g++ -o tictactoe main.cpp visuals.cpp logic.cpp ai.cpp -I.
