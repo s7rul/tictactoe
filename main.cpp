@@ -41,30 +41,7 @@ void gameloops(){
             else if (turn == 1){turn = 0;}
         }
     }
-<<<<<<< HEAD
     if (shoice == 2){
-=======
-    if (shoice == 1){
-        //insert 1p loop here
-        for (bool win = 0; win == 0;){
-            resetBoard(board);
-            printboard(board);
-            insert(board, 1);
-            if (checkWin(board, 0) == 1){
-                printboard(board);
-                winM(0);
-                win = 1;
-            }
-            mainai(board);
-            if (checkWin(board, 1) == 1){
-                printboard(board);
-                winM(1);
-                win = 1;
-            }
-        }
-    }
-    if (shoice == 3){
->>>>>>> ff2df467f6f94fd899771042c7e5ab650efe9c8f
         std::cout << "quiting\n";
         return;
     }
