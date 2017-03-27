@@ -10,24 +10,6 @@ int charconvert(char input){//converts char to appropriate int
     return 6;
 }
 
-bool treeout(int board[3][3], bool turn){
-    int count = 0;
-    int intturn = turn + 1;
-
-    for (int x = 0; x < 3; x++){
-        for (int y = 0; y < 3; y++){
-            if (board[x][y] == intturn){
-                count++;
-            }
-        }
-    }
-
-    if (count < 4){
-        return 1;
-    }
-    else return 0;
-}
-
 void extrude(int board[3][3], int turn){
     int x;
     int y;
@@ -40,7 +22,7 @@ void extrude(int board[3][3], int turn){
     if (board[x][y] == turn){
         board[x][y] = 0;
     }
-    //else extrude(board, turn);
+    else extrude(board, turn);
 }
 
 void insert(int board[3][3], int turn){
@@ -55,16 +37,26 @@ void insert(int board[3][3], int turn){
     if (board[x][y] == 0){
         board[x][y] = turn;
     }
-    //else insert(board, turn);
+    else insert(board, turn);
 }
 
 int inputfunk(int board[3][3], bool turn){//handles input and sets board acordingly
+    int count = 0;
     int intturn = turn + 1;
-    if (treeout(board, turn) == 1){
+
+    for (int x = 0; x < 3; x++){
+        for (int y = 0; y < 3; y++){
+            if (board[x][y] == intturn){
+                count++;
+            }
+        }
+    }
+
+    if (count > 2){
+        extrude(board, intturn);
         insert(board, intturn);
     }
-    else if (treeout(board, turn) == 0){
-        extrude(board, intturn);
+    else {
         insert(board, intturn);
     }
     return 0;
