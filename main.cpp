@@ -9,6 +9,10 @@ void winM(bool turn);//print win funktion
 //logic funktions declared in logic.cpp
 int inputfunk(int board[3][3], bool turn);//handels input and changing board array
 bool checkWin(int board[3][3], bool turn);//checks if anybody has won
+void insert(int board[3][3], int turn);
+
+//funktions deklared in ai.cpp
+int mainai(int board[3][3]);
 
 void resetBoard(int board[3][3]){
     for(int n = 0; n < 3; n++){
@@ -24,7 +28,6 @@ void gameloops(){
     if (shoice == 1){
         //insert 2p loop here
         bool turn = 0;//x = 0 o=1
-        std::cout << "one player\n";
         resetBoard(board);
         for (bool win = 0; win == 0;){
             printboard(board);
@@ -38,7 +41,30 @@ void gameloops(){
             else if (turn == 1){turn = 0;}
         }
     }
+<<<<<<< HEAD
     if (shoice == 2){
+=======
+    if (shoice == 1){
+        //insert 1p loop here
+        for (bool win = 0; win == 0;){
+            resetBoard(board);
+            printboard(board);
+            insert(board, 1);
+            if (checkWin(board, 0) == 1){
+                printboard(board);
+                winM(0);
+                win = 1;
+            }
+            mainai(board);
+            if (checkWin(board, 1) == 1){
+                printboard(board);
+                winM(1);
+                win = 1;
+            }
+        }
+    }
+    if (shoice == 3){
+>>>>>>> ff2df467f6f94fd899771042c7e5ab650efe9c8f
         std::cout << "quiting\n";
         return;
     }
