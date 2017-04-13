@@ -33,6 +33,19 @@ void boardToString(int turn, std::string output[5]){
     }
 }
 
+void printturn(bool turn){
+    char charturn;
+    if (turn == 0){
+        charturn = 'X';
+    }
+    if (turn == 1){
+        charturn = 'O';
+    }
+
+    std::cout << "\n";
+    std::cout << "turn: " << charturn << "\n";
+}
+
 void printboard(int board[3][3]){//printing out the board
     std::string aa[5];
     std::string ba[5];

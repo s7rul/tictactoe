@@ -5,6 +5,7 @@
 void printboard(int board[3][3]);//printing out the board
 int menu();//prints menu and returns choice
 void winM(bool turn);//print win funktion
+void printturn(bool turn);//prints out turn
 
 //logic funktions declared in logic.cpp
 int inputfunk(int board[3][3], bool turn);//handels input and changing board array
@@ -30,9 +31,11 @@ void gameloops(){
         bool turn = 0;//x = 0 o=1
         resetBoard(board);
         for (bool win = 0; win == 0;){
+            printturn(turn);
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
             if (checkWin(board, turn) == 1){
+                printturn(turn);
                 printboard(board);
                 winM(turn);
                 win = 1;
