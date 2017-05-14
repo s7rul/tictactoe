@@ -1,5 +1,8 @@
 #include <iostream>
 
+//things declared in visuals.cpp
+void printboard(int board[3][3]);
+
 int charconvert(char input){//converts char to appropriate int
     if (input == '1'){return 0;}
     if (input == '2'){return 1;}
@@ -54,6 +57,7 @@ int inputfunk(int board[3][3], bool turn){//handles input and sets board acordin
 
     if (count > 2){
         extrude(board, intturn);
+        printboard(board);
         insert(board, intturn);
     }
     else {

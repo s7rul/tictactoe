@@ -43,8 +43,8 @@ void gameloops(){
     }
     if (shoice == 1){
         //insert 1p loop here
+        resetBoard(board);
         for (bool win = 0; win == 0;){
-            resetBoard(board);
             printboard(board);
             insert(board, 1);
             if (checkWin(board, 0) == 1){
