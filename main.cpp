@@ -1,4 +1,4 @@
-//tictactoe writen in c++ working on linux
+//tictactoe writen in c++ working on linux and mac
 #include <iostream>
 
 //visual funktions declared in visual.cpp
