@@ -24,14 +24,14 @@ void resetBoard(int board[3][3]){
     }
 }
 
+//main game funktion
 void gameloops(){
     int board[3][3];
     int shoice = menu();
     if (shoice == 1){
-        //insert 2p loop here
         bool turn = 0;//x = 0 o=1
         resetBoard(board);
-        for (bool win = 0; win == 0;){
+        for (bool win = 0; win == 0;){//main game loop
             printturn(turn);
             printboard(board);
             inputfunk(board, turn);//returns 1 it invalid option
@@ -45,11 +45,11 @@ void gameloops(){
             else if (turn == 1){turn = 0;}
         }
     }
-    if (shoice == 2){
+    if (shoice == 2){//quit part
         std::cout << "quiting\n";
         return;
     }
-    else{
+    else{//loopback if incorect
         gameloops();
     }
 }
